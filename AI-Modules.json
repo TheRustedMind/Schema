@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/AIModule",
+  "definitions": {
+    "AIModule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "modules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Module"
+          }
+        }
+      },
+      "required": [
+        "modules"
+      ],
+      "title": "AIModule"
+    },
+    "Module": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "moduleId": {
+          "type": "integer"
+        },
+        "moduleName": {
+          "type": "string"
+        },
+        "queueName": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "isChild": {
+          "type": "boolean"
+        },
+        "parentModuleId": {
+          "type": "integer"
+        },
+        "aditionalConfigurationLevel": {
+          "type": "string"
+        },
+        "aditionalConfigurationFields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AditionalConfigurationField"
+          }
+        }
+      },
+      "required": [
+        "default",
+        "moduleId",
+        "moduleName",
+        "queueName"
+      ],
+      "title": "Module"
+    },
+    "AditionalConfigurationField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Complex",
+            "String",
+            "Number",
+            "Boolean",
+            "ArrayOfComplex",
+            "ArrayOfString",
+            "ArrayOfNumber",
+            "ArrayOfBoolean"
+          ]
+        },
+        "optional": {
+          "type": "boolean"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AditionalConfigurationField"
+          }
+        },
+        "defaultValue": {
+          "type": [
+            "number",
+            "string",
+            "boolean",
+            "array"
+          ]
+        },
+        "lookup": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "title": "AditionalConfigurationField"
+    }
+  }
+}
