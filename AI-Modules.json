@@ -4,7 +4,6 @@
   "definitions": {
     "AIModule": {
       "type": "object",
-      "additionalProperties": false,
       "properties": {
         "modules": {
           "type": "array",
